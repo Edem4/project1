@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Человек</title>
+</head>
+<body>
+<p th:text="${person.getName()}"></p>
+<p th:text="${person.getAge()}"></p>
+<p th:text="${person.getEmail()}"></p>
+<p th:text="${person.getId()}"></p>
+
+<a th:href="@{/people/{id}/edit(id=${person.getId()})}">edit</a>
+<br>
+<hr/>
+
+<form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
+
+    <input type="submit" value="delete">
+
+</form>
+</body>
+</html>

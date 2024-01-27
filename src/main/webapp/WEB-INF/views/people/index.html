@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Список людей</h1>
+<div th:each="person : ${people}">
+    <a th:href="@{/people/{id}(id=${person.getId()})}"
+       th:text="${person.getName() + ', ' +person.getAge()}">user</a>
+</div>
+<br>
+<hr/>
+<a href="/people/new">Add</a>
+<form th:method="DELETE" th:action="@{/people}" th:object="${person}">
+    <input type="submit" value="clear">
+</form>
+</body>
+</html>
